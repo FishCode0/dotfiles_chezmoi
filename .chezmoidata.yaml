@@ -22,3 +22,9 @@ zsh:
     - zsh-autosuggestions
     - zsh-syntax-highlighting
 
+ssh:
+  enable_agent_forwarding: false
+  github:
+    host: github.com
+    user: git
+    identity_file: ~/.ssh/id_ed25519
