@@ -1,0 +1,24 @@
+git:
+  name: zhizhou
+  email: zhou.zhi.1@outlook.com
+  work_email: zhou.zhi.1@outlook.com
+  use_work_identity_on_hosts:
+    - work-laptop
+
+zsh:
+  enable_eza_aliases: true
+  enable_uv_completions: true
+  plugins:
+    - git
+    - extract
+    - web-search
+    - copyfile
+    - copypath
+    - copybuffer
+    - sudo
+    - zsh-history-substring-search
+    - you-should-use
+    - fzf-tab
+    - zsh-autosuggestions
+    - zsh-syntax-highlighting
+
