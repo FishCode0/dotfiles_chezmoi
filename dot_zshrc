@@ -1,0 +1,71 @@
+if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+fi
+
+
+export ZSH="$HOME/.oh-my-zsh"
+
+ZSH_THEME="powerlevel10k/powerlevel10k"
+
+#plugins=(git)
+plugins=(git 
+		 extract 
+		 web-search 
+		 copyfile 
+		 copypath 
+		 copybuffer 
+		 sudo  
+		 zsh-history-substring-search 
+		 you-should-use
+		 fzf-tab	# It must be placed at the end.
+		 zsh-autosuggestions 
+		 zsh-syntax-highlighting 
+		 )
+
+export ZSH_AUTOSUGGEST_STRATEGY=(history completion)
+export HISTORY_SUBSTRING_SEARCH_HIGHLIGHT_FOUND=(bg=none,fg=magenta,bold)
+export YSU_MESSAGE_POSITION="after"
+export PATH="$HOME/.local/bin:$PATH"
+
+source $ZSH/oh-my-zsh.sh
+[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+bindkey "$terminfo[kcuu1]" history-substring-search-up
+bindkey "$terminfo[kcud1]" history-substring-search-down
+bindkey '^[[A' history-substring-search-up
+bindkey '^[[B' history-substring-search-down
+bindkey '^[OA' history-substring-search-up
+bindkey '^[OB' history-substring-search-down
+
+
+eval "$(zoxide init zsh )"
+eval "$(uv generate-shell-completion zsh)"
+eval "$(uvx --generate-shell-completion zsh)"
+
+alias "bat=batcat"
+alias "ll=eza --all --long --icons"
+alias "la=eza --all --long -1"
+alias "l=eza --group-directories-first --icons"
+alias "grep=grep --color=auto"
+# alias "df=df -h"
+# alias "du=du -h"
+alias "df=duf"
+alias "du=ncdu"
+alias "help=tldr"
+alias "fd=fdfind"
+alias "update=sudo apt update && sudo apt upgrade"
+
+# 当使用 cd 补全时，预览目录内容 (使用你装好的 eza)
+zstyle ':fzf-tab:complete:cd:*' fzf-preview 'eza -1 --color=always $realpath'
+
+# 当补全系统变量时，预览变量值
+zstyle ':fzf-tab:complete:(-command-|-parameter-|-brace-parameter-|export|unset|expand):*' \
+	fzf-preview 'echo ${(P)word}'
+
+# 当补全 git checkout 时，预览 git log
+zstyle ':fzf-tab:complete:git-(checkout|add):*' fzf-preview \
+	'git diff $word | delta'
+
+setopt share_history
+setopt hist_ignore_space
