@@ -1,6 +1,6 @@
 [user]
-	name = zhizhou
-	email = zhou.zhi.1@outlook.com
+	name = {{ .git.name }}
+	email = {{ if has .chezmoi.hostname .git.use_work_identity_on_hosts }}{{ .git.work_email }}{{ else }}{{ .git.email }}{{ end }}
 [init]
 	defaultBranch = main
 [color]
@@ -28,9 +28,21 @@
   
 [rerere]
 	enabled = true
-[credential "https://github.com"]
-	helper = 
+
+[credential "https://github.com"] 
+{{- if eq .chezmoi.os "linux" }}
 	helper = !/usr/bin/gh auth git-credential
+{{- else if eq .chezmoi.os "windows" }}
+	helper = !gh.exe auth git-credential
+{{- else }}
+	helper = !gh auth git-credential
+{{- end }}
+
 [credential "https://gist.github.com"]
-	helper = 
+{{- if eq .chezmoi.os "linux" }}
 	helper = !/usr/bin/gh auth git-credential
+{{- else if eq .chezmoi.os "windows" }}
+	helper = !gh.exe auth git-credential
+{{- else }}
+	helper = !gh auth git-credential
+{{- end }}
