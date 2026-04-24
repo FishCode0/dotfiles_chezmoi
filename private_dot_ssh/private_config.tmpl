@@ -1,0 +1,13 @@
+Host *
+  ServerAliveInterval 60
+  ServerAliveCountMax 3
+  AddKeysToAgent yes
+  IdentityFile {{ .ssh.github.identity_file }}
+{{- if .ssh.enable_agent_forwarding }}
+  ForwardAgent yes
+{{- end }}
+
+Host {{ .ssh.github.host }}
+  HostName {{ .ssh.github.host }}
+  User {{ .ssh.github.user }}
+  IdentitiesOnly yes
