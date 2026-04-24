@@ -1,0 +1,36 @@
+[user]
+	name = zhizhou
+	email = zhou.zhi.1@outlook.com
+[init]
+	defaultBranch = main
+[color]
+	ui = auto
+[alias]
+
+    # 基础彩色图形日志 (你刚才输入的)
+    lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
+    
+    # 查看所有分支的彩色日志
+    lga = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --all
+    
+    # 精简状态显示 (比 git status 更干净)
+    s = status -s
+    
+    # 快速提交
+    cm = commit -m
+    
+    # 撤销上一次 commit (保留修改到暂存区)
+    uncommit = reset --soft HEAD~1
+    
+    # 强制推送 (带保护的强制推送，更安全)
+    pf = push --force-with-lease
+	br = branch -vv
+  
+[rerere]
+	enabled = true
+[credential "https://github.com"]
+	helper = 
+	helper = !/usr/bin/gh auth git-credential
+[credential "https://gist.github.com"]
+	helper = 
+	helper = !/usr/bin/gh auth git-credential
