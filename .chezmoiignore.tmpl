@@ -1,6 +1,12 @@
 README.MD
 
-{{- if ne .chezmoi.os "linux" }}
+{{- if eq .chezmoi.os "windows" }}
+.bashrc
 .zshrc
 .p10k.zsh
+{{- end }}
+
+{{- if ne .chezmoi.os "windows" }}
+.wezterm.lua
+Documents/PowerShell
 {{- end }}
