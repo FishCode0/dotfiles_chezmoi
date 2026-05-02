@@ -24,3 +24,8 @@ d = ["describe"]
 {{- if eq .chezmoi.os "windows" }}
     HEAD = "@"
 {{- end }}
+
+[diff]
+{{- if eq .chezmoi.os "windows" }}
+	tool = "code --wait"
+{{- end }}
