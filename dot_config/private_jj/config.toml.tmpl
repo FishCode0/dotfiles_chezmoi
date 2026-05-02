@@ -6,17 +6,21 @@ color = "auto"
 
 
 {{- if eq .chezmoi.os "windows" }}
-editor = "code --wait"
-{{- else }}
-editor = "micro"
+    editor = "code --wait"
+{{- else if eq .chezmoi.os "linux" }}
+    editor = "micro"
 {{- end }}
 
 [user]
-name = "zhizhou"
-email = "zhou.zhi.1@outlook.com"
+name = {{ .git.name }}
+email = {{ if has .chezmoi.hostname .git.use_work_identity_on_hosts }}{{ .git.work_email }}{{ else }}{{ .git.email }}{{ end }}
 
 [aliases]
 l = ["log"]
 s = ["status"]
 d = ["describe"]
 
+[revset-aliases]
+{{- if eq .chezmoi.os "windows" }}
+    HEAD = "@"
+{{- end }}
