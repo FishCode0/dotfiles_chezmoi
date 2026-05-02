@@ -61,3 +61,11 @@ Set-PSReadLineKeyHandler -Key Tab -Function MenuComplete
 
 Invoke-Expression (&starship init powershell)
 Invoke-Expression (& { (zoxide init --hook pwd  powershell | Out-String) })
+
+# jj标准补全
+# jj util completion power-shell | Out-String | Invoke-Expression
+
+# jj动态补全
+$env:COMPLETE = "powershell"
+jj | Out-String | Invoke-Expression
+Remove-Item Env:\COMPLETE
