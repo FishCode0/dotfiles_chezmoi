@@ -12,8 +12,8 @@ color = "auto"
 {{- end }}
 
 [user]
-name = {{ .git.name }}
-email = {{ if has .chezmoi.hostname .git.use_work_identity_on_hosts }}{{ .git.work_email }}{{ else }}{{ .git.email }}{{ end }}
+name = "{{ .git.name }}"
+email = "{{ if has .chezmoi.hostname .git.use_work_identity_on_hosts }}{{ .git.work_email }}{{ else }}{{ .git.email }}{{ end }}"
 
 [aliases]
 l = ["log"]
