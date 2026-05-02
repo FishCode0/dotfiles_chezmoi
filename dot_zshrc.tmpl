@@ -61,3 +61,12 @@ zstyle ':fzf-tab:complete:git-(checkout|add):*' fzf-preview \
 
 setopt share_history
 setopt hist_ignore_space
+
+autoload -U compinit
+if [ -n "${ZDOTDIR}/.zcompdump(#qN.m+24)" ]; then
+  compinit
+else
+  compinit -C
+fi
+source <(jj util completion zsh)
+
