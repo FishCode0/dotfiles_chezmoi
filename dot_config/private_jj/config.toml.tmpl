@@ -1,0 +1,22 @@
+#:schema https://docs.jj-vcs.dev/latest/config-schema.json
+
+[ui]
+log-word-wrap = true
+color = "auto"
+
+
+{{- if eq .chezmoi.os "windows" }}
+editor = "code --wait"
+{{- else }}
+editor = "micro"
+{{- end }}
+
+[user]
+name = "zhizhou"
+email = "zhou.zhi.1@outlook.com"
+
+[aliases]
+l = ["log"]
+s = ["status"]
+d = ["describe"]
+
