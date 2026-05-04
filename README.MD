@@ -12,16 +12,47 @@ sh -c "$(wget -qO- https://get.chezmoi.io)"
 iex "&{$(irm 'https://get.chezmoi.io/ps1')}"
 ```
 
-## 一键导入
+
+## 克隆chezmoi库
+方法一：使用HTTPS克隆
+1. 获取临时密码Token
+https://github.com/settings/personal-access-tokens
+
+
+2. 一键导入
 
 ```bash
 chezmoi init https://github.com/FishCode0/dotfiles_chezmoi.git
 ```
+导入并应用
+```bash
+chezmoi init --apply https://github.com/FishCode0/dotfiles_chezmoi.git
+```
+或者也可以使用SSH登录
 
+方法二：使用SSH克隆
+
+1. 生成SSH公钥
+```bash
+ssh-keygen -t ed25519 -C "your_email@example.com"
+```
+2. 将公钥上传到GitHub
+https://github.com/settings/keys
+
+3. 一键导入
+```bash
+chezmoi init  https://github.com/FishCode0/dotfiles_chezmoi.git
+```
 一键导入并应用
 ```bash
 chezmoi init --apply https://github.com/FishCode0/dotfiles_chezmoi.git
 ```
+
+### 使用同步
+```bash
+chezmoi apply
+```
+
 
 ## 模板示例
 
