@@ -1,4 +1,16 @@
 
+## 安装chezmoi
+```bash
+sh -c "$(curl -fsLS https://get.chezmoi.io)"
+```
+
+```bash
+sh -c "$(wget -qO- https://get.chezmoi.io)"
+```
+
+```powershell
+iex "&{$(irm 'https://get.chezmoi.io/ps1')}"
+```
 
 ## 一键导入
 
