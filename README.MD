@@ -1,17 +1,23 @@
 
 ## 安装chezmoi
+### 下载
+#### curl下载
 ```bash
 sh -c "$(curl -fsLS https://get.chezmoi.io)"
 ```
-
+#### wget下载
 ```bash
 sh -c "$(wget -qO- https://get.chezmoi.io)"
 ```
-
+#### PowerShell安装
 ```powershell
 iex "&{$(irm 'https://get.chezmoi.io/ps1')}"
 ```
-
+### 安装
+正常来说会直接安装好，也可能会出现在`~`下创建了一个bin目录，这个时候使用以下命令
+```bash
+ cp bin/chezmoi ~/.local/bin
+```
 
 ## 克隆chezmoi库
 方法一：使用HTTPS克隆
