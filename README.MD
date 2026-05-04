@@ -49,10 +49,14 @@ chezmoi init --apply https://github.com/FishCode0/dotfiles_chezmoi.git
 ```
 
 ### 使用同步
-```bash
-chezmoi apply
-```
 
+```bash
+chezmoi apply 
+```
+可能因为有加密文件导致失、缺少文件，使用`--exclude encrypted`跳过加密文件
+```bash
+chezmoi apply --exclude encrypted
+```
 
 ## 模板示例
 
