@@ -36,7 +36,7 @@ sudo vim /etc/apt/sources.list.d/ubuntu.sources
 ###提前安装软件
 
 ```bash
-sudo apt install -y zsh  zip tig ripgrep ncdu nano micro httpie htop gzip grep git ffmpeg fd-find dos2unix bat age 7zip eza cmake shellcheck wl-clipboard zstd clang libclang-dev
+sudo apt install -y zsh  zip tig ripgrep ncdu nano micro httpie htop gzip grep git ffmpeg fd-find dos2unix bat age 7zip eza cmake shellcheck wl-clipboard zstd clang libclang-dev duf
 ```
 
 将apt改为nala会更快
