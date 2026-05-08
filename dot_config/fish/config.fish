@@ -15,6 +15,7 @@ fish_add_path $GOPATH/bin
 
 fish_add_path /usr/local/go/bin
 fish_add_path ~/.local/bin
+fish_add_path ~/.cargo/bin
 
 abbr -a  bat "batcat"
 # abbr -a ll "eza --all --long --icons"
@@ -33,4 +34,4 @@ abbr -a help "tldr"
 abbr -a fd "fdfind"
 abbr -a update "sudo nala update && sudo nala upgrade"
 # abbr -a td "tealdeer"
-abbr -a tr "tlrc"
+abbr -a tr "tldr"
