@@ -63,6 +63,18 @@ chezmoi apply
 ```bash
 chezmoi apply --exclude encrypted
 ```
+## 更新
+以本地文件为模板更新
+```bash
+chezmoi re-add
+```
+文件夹中的新文件可能不会自动追踪，需要重新add一下文件夹
+```bash
+chezmoi update
+```
+
+以库为模板更新
+
 
 ## 模板示例
 
