@@ -16,9 +16,9 @@ fish_add_path $GOPATH/bin
 fish_add_path /usr/local/go/bin
 
 abbr -a  bat "batcat"
-abbr -a ll "eza --all --long --icons"
-abbr -a la "eza --all --long -1"
-abbr -a l "eza --group-directories-first --icons"
+# abbr -a ll "eza --all --long --icons"
+# abbr -a la "eza --all --long -1"
+# abbr -a l "eza --group-directories-first --icons"
 abbr -a grep "grep --color auto"
 abbr -a apt "nala"
 
@@ -31,5 +31,5 @@ abbr -a du "ncdu"
 abbr -a help "tldr"
 abbr -a fd "fdfind"
 abbr -a update "sudo nala update && sudo nala upgrade"
-abbr -a td "tealdeer"
+# abbr -a td "tealdeer"
 abbr -a tr "tlrc"
