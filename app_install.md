@@ -151,6 +151,16 @@ eval "$(atuin init zsh)"
 atuin init fish | source
 ```
 
+#### 导入历史记录
+```bash
+atuin import auto
+```
+或者指定shell
+```bash
+atuin import bash
+atuin import zsh
+```
+
 #### 注册与云同步
 官方提供了免费云同步服务
 ```bash
