@@ -35,3 +35,7 @@ abbr -a fd "fdfind"
 abbr -a update "sudo nala update && sudo nala upgrade"
 # abbr -a td "tealdeer"
 abbr -a tr "tldr"
+
+# ouch
+abbr -a od "ouch decompress"
+abbr -a oc "ouch compress"

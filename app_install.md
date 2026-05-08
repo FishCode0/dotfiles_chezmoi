@@ -195,6 +195,16 @@ plugins=(... direnv)
 direnv hook fish | source
 ```
 
+### ouch
+功能：统一压缩/解压命令的软件
+```bash
+cargo install ouch
+```
+语法：
+```bash
+ouch decompress a.tar.gz
+ouch compress a/ a.tar.zst
+```
 
 
 ### 安装Nerd Fonts字体
