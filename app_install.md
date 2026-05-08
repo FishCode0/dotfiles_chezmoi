@@ -68,8 +68,7 @@ cargo install --locked --bin jj jj-cli
 
 ```bash
 wget https://go.dev/dl/go1.26.3.linux-amd64.tar.gz
-tar -xvf go1.26.3.linux-amd64.tar.gz
-sudo tar -C /usr/local -xzf go1.25.0.linux-amd64.tar.gz
+sudo tar -C /usr/local -xzf go1.26.3.linux-amd64.tar.gz 
 
 ```
 
@@ -152,15 +151,6 @@ eval "$(atuin init zsh)"
 atuin init fish | source
 ```
 
-### fzf.fish
-
-fzf+fish 比官方自带的completion更强
-
-tip：需先安装fzf
-
-```bash
-fisher install PatrickF1/fzf.fish
-```
 
 ### direnv
 
@@ -245,6 +235,8 @@ sudo cmake --install .
 手册页补全
 
 ```bash
+# 先进fish
+fish
  fish_update_completions
 ```
 
@@ -285,6 +277,8 @@ curl -sL https://raw.githubusercontent.com/jorgebucaran/fisher/main/functions/fi
 + done
 + direnv
 + autopair
++ bass
++ tide
 
 ##### zoxide
 
@@ -300,6 +294,16 @@ echo "zoxide init fish | source" >> ~/.config/fish/config.fish
 
 ```bash
 echo "atuin init fish | source" >> ~/.config/fish/config.fish
+```
+
+### fzf.fish
+
+fzf+fish 比官方自带的completion更强
+
+tip：需先安装fzf
+
+```bash
+fisher install PatrickF1/fzf.fish
 ```
 
 ##### done
