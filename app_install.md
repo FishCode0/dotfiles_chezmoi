@@ -151,6 +151,19 @@ eval "$(atuin init zsh)"
 atuin init fish | source
 ```
 
+#### 注册与云同步
+官方提供了免费云同步服务
+```bash
+# 注册
+atuin register -u <username> -e <email>
+# 登录
+atuin login
+# 获取同步key
+atuin key
+# 统计命令使用频率
+atuin stats
+```
+tips：也可以自建服务器
 
 ### direnv
 
