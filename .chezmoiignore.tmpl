@@ -11,3 +11,11 @@ README.MD
 Documents/PowerShell
 scoopfile.json
 {{- end }}
+
+{{- if eq .chezmoi.osRelease.versionID "26.04" }}
+.zshrc
+.zsh_history
+.config/zsh/**
+.p10k.zsh
+.bashrc
+{{- end }}
