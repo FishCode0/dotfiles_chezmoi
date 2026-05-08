@@ -36,7 +36,7 @@ sudo vim /etc/apt/sources.list.d/ubuntu.sources
 提前安装软件
 
 ```bash
-sudo apt install -y zsh zoxide zip tig ripgrep ncdu nano micro httpie htop gzip grep git ffmpeg fd-find dos2unix bat age 7zip eza 
+sudo apt install -y zsh  zip tig ripgrep ncdu nano micro httpie htop gzip grep git ffmpeg fd-find dos2unix bat age 7zip eza cmake shellcheck
 ```
 
 将apt改为nala会更快
@@ -62,6 +62,37 @@ sudo apt install build-essential
 cargo install --locked --bin jj jj-cli
 ```
 
+### golang
+
+官网：https://go.dev/dl/
+
+```bash
+wget https://go.dev/dl/go1.26.3.linux-amd64.tar.gz
+tar -xvf go1.26.3.linux-amd64.tar.gz
+sudo tar -C /usr/local -xzf go1.25.0.linux-amd64.tar.gz
+
+```
+
+配置环境变量
+
+`.zshrc`
+
+```
+export GOPATH=$HOME/go
+export PATH=$PATH:/usr/local/go/bin:$GOPATH/bin
+```
+
+`config.fish`
+
+```
+set -Ux GOPATH $HOME/go
+fish_add_path $GOPATH/bin
+
+fish_add_path /usr/local/go/bin
+```
+
+
+
 ### fzf
 
 apt安装的版本有点老，没有好用的交互 UI（好像是0.70.0以上才有）
@@ -73,7 +104,261 @@ git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
 ~/.fzf/install
 ```
 
-tip：`.fzf\`文件夹不能删
+tip：全部yes，而且 `~/.fzf/`文件夹不能删
+
+### zoxide
+
+tip：需先安装fzf
+
+好用的跳转工具
+
+https://github.com/ajeetdsouza/zoxide
+
+其实也可以用包管理器安装，下面用脚本安装是为了安装最新版本
+
+```
+curl -sSfL https://raw.githubusercontent.com/ajeetdsouza/zoxide/main/install.sh | sh
+```
+
+之后在shell启动脚本加入启动命令
+
+```bash
+# bash
+eval "$(zoxide init bash)"
+# fish
+zoxide init fish | source
+# zsh 
+eval "$(zoxide init zsh)"
+# 其他可以在官网Readme中查看
+
+```
+
+### atuin
+
+好用的命令行历史记录器，提供同步功能
+
+安装：
+
+```bash
+curl --proto '=https' --tlsv1.2 -LsSf https://setup.atuin.sh | sh -s -- --non-interactive
+```
+
+添加到配置文件
+
+```bash
+# zsh
+eval "$(atuin init zsh)"
+# fish
+atuin init fish | source
+```
+
+### fzf.fish
+
+fzf+fish 比官方自带的completion更强
+
+tip：需先安装fzf
+
+```bash
+fisher install PatrickF1/fzf.fish
+```
+
+### direnv
+
+功能：自动加载环境变量（虚拟环境）
+
+需要go >= 1.24
+
+```bash
+git clone https://github.com/direnv/direnv.git
+cd direnv
+make
+make test
+# 安装到/usr/local
+make install
+# 自定义安装路径，如~.local/bin/
+make install PREFIX=~/.local
+```
+
+添加到配置文件中
+
+```bash
+# bash
+eval "$(direnv hook bash)"
+# zsh
+eval "$(direnv hook zsh)"
+# oh-my-zsh
+plugins=(... direnv)
+# fish
+direnv hook fish | source
+```
+
+
+
+### 安装Nerd Fonts字体
+
+下载字体
+
+```bash
+cd ~
+wget https://github.com/githubnext/monaspace/releases/download/v1.301/monaspace-nerdfonts-v1.301.zip
+```
+
+解压字体
+
+```bash
+unzip monaspace-nerdfonts-v1.301.zip -d monaspace
+```
+
+安装字体
+
+```bash
+# 创建用户字体目录
+mkdir -p ~/.local/share/fonts
+cp -r monaspace ~/.local/share/fonts/
+```
+
+刷新缓存
+
+```bash
+fc-cache -fv
+```
+
+验证
+
+```bash
+fc-list | grep -i monaspace
+```
+
+### Fish
+
+Zsh可能不好用，开箱即用的fish更适合懒人
+
+```bash
+git clone https://github.com/fish-shell/fish-shell.git
+cd fish-shell
+mkdir build; cd build
+cmake ..
+cmake --build .
+sudo cmake --install .
+```
+
+手册页补全
+
+```bash
+ fish_update_completions
+```
+
+搭配下面的starship更佳
+
+设置为默认终端
+
+```bash
+chsh -s $(which fish)
+```
+
+如果报错`chsh：/usr/local/bin/fish 是无效的 shell`
+
+先修改`/etc/shells`
+
+```bash
+echo /usr/local/bin/fish | sudo tee -a /etc/shells
+chsh -s $(which fish)
+```
+
+
+
+#### Fisher
+
+一个极简的fish插件管理器（oh-my-fish是全家桶版框架）
+
+特点：只负责下载和清理
+
+```bash
+curl -sL https://raw.githubusercontent.com/jorgebucaran/fisher/main/functions/fisher.fish | source && fisher install jorgebucaran/fisher
+```
+
+推荐的插件：
+
++ zoxide
++ atuin
++ fzf.fish
++ done
++ direnv
++ autopair
+
+##### zoxide
+
+更好的目录跳转，安装参考上文zoxide部分
+
+```bash
+echo "zoxide init fish | source" >> ~/.config/fish/config.fish
+```
+
+##### atuin
+
+历史命令记录，提供同步功能
+
+```bash
+echo "atuin init fish | source" >> ~/.config/fish/config.fish
+```
+
+##### done
+
+长命令执行完后，进行桌面提醒
+
+```bash
+fisher install franciscolourenco/done
+```
+
+##### direnv
+
+```bash
+echo "direnv hook fish | source" >> ~/.config/fish/config.fish
+```
+
+##### autopair
+
+自动补`"`,`[`,`(`之类的
+
+```bash
+fisher install jorgebucaran/autopair.fish
+```
+
+##### bass
+
+用来兼容bash语法
+
+```bash
+fisher install edc/bass
+```
+
+
+
+##### tide
+
+类似p10k一样提供prompt、装了starship可以不装这个
+
+```bash
+fisher install IlanCosman/tide@v6
+```
+
+### starship
+
+```bash
+curl -sS https://starship.rs/install.sh | sh
+```
+
+配置Fish自动启用
+
+```bash
+# 创建配置文件夹
+mkdir -p ~/.config/fish
+
+# 将初始化语句写入 fish 配置文件
+echo "starship init fish | source" >> ~/.config/fish/config.fish
+```
+
+
 
 ### Zsh
 
@@ -118,42 +403,7 @@ git clone https://github.com/Aloxaf/fzf-tab ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/p
 git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k
 ```
 
-#### 安装Nerd Fonts字体
-
-下载字体
-
-```bash
-cd ~
-wget https://github.com/githubnext/monaspace/releases/download/v1.301/monaspace-nerdfonts-v1.301.zip
-```
-
-解压字体
-
-```bash
-unzip monaspace-nerdfonts-v1.301.zip -d monaspace
-```
-
-安装字体
-
-```bash
-# 创建用户字体目录
-mkdir -p ~/.local/share/fonts
-cp -r monaspace ~/.local/share/fonts/
-```
-
-刷新缓存
-
-```bash
-fc-cache -fv
-```
-
-验证
-
-```bash
-fc-list | grep -i monaspace
-```
-
-
+### 
 
 ### yazi
 
