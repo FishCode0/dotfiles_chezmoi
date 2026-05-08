@@ -293,6 +293,13 @@ curl -sL https://raw.githubusercontent.com/jorgebucaran/fisher/main/functions/fi
 + bass
 + tide
 
+tips: 以上插件尽量使用fisher安装，也不要手动安装，或者加入chezmoi，避免索引冲突
+仅需chezmoi同步fish_plugins文件即可，
+通过以下命令可以直接完成重新安装
+```bash
+fisher update
+```
+
 ##### zoxide
 
 更好的目录跳转，安装参考上文zoxide部分
