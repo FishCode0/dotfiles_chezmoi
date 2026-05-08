@@ -14,6 +14,7 @@ set -Ux GOPATH $HOME/go
 fish_add_path $GOPATH/bin
 
 fish_add_path /usr/local/go/bin
+fish_add_path ~/.local/bin
 
 abbr -a  bat "batcat"
 # abbr -a ll "eza --all --long --icons"
