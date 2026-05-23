@@ -41,6 +41,12 @@ sudo apt install -y zsh  zip tig ripgrep ncdu nano micro httpie htop gzip grep g
 
 将apt改为nala会更快
 
+### micro
+如果软件包无法直接安装的话
+```bash
+curl https://getmic.ro | bash
+```
+
 ### uv
 
 ```bash
