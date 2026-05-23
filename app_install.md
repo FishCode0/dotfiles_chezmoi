@@ -208,6 +208,12 @@ atuin stats
 ```
 tips：也可以自建服务器
 
+### fd-find
+https://github.com/sharkdp/fd
+```bash
+cargo install fd-find
+```
+
 ### direnv
 
 功能：自动加载环境变量（虚拟环境）
