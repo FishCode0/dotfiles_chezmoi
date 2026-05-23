@@ -18,6 +18,9 @@
     
     # 快速提交
     cm = commit -m
+
+    # 安全的拉取
+	gpr = pull --rebase --autostash
     
     # 撤销上一次 commit (保留修改到暂存区)
     uncommit = reset --soft HEAD~1
