@@ -292,7 +292,7 @@ sudo cmake --install .
 ```bash
 # 先进fish
 fish
- fish_update_completions
+fish_update_completions
 ```
 
 搭配下面的starship更佳
