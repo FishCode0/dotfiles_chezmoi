@@ -48,7 +48,7 @@ curl -LsSf https://astral.sh/uv/install.sh | sh
 ```
 
 ### cargo
-
+⭐很重要，最好先安装
 ```bash
 curl https://sh.rustup.rs -sSf | sh
 ```
@@ -89,8 +89,24 @@ fish_add_path $GOPATH/bin
 
 fish_add_path /usr/local/go/bin
 ```
+### bat
+https://github.com/sharkdp/bat
+在Debain/Unbntu中使用apt安装，可能会变为`batcat`，所以建议使用cargo安装，其他系统可以直接使用各自的安装器安装
+如Rocky Linux可以直接
+```bash
+sudo dnf install -y bat
+```
+cargo安装：
+```bash
+cargo install --locked bat
+```
 
-
+### eza 
+https://github.com/eza-community/eza/blob/main/INSTALL.md
+cargo安装方法：
+```bash
+cargo install eza
+```
 
 ### fzf
 
