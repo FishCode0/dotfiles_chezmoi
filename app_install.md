@@ -78,7 +78,18 @@ sudo tar -C /usr/local -xzf go1.26.3.linux-amd64.tar.gz
 
 ```
 
-配置环境变量
+### gh
+因为`.gitconfig`里配置了，所以需要用gh登录获得授权
+```bash
+gh auth login
+```
+然后一步步选择即可，最终建议选择`Login with a web browser`
+
+获得8 位数的动态授权验证码，
+然后进入https://github.com/login/device，输入授权验证码，完成激活。
+
+
+### 配置环境变量
 
 `.zshrc`
 
