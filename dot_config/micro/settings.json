@@ -1,1 +1,7 @@
-{}
+{
+    "autosu": true,
+    "colorscheme": "dracula",
+    "rmtrailingws": true,
+    "scrollbar": true,
+    "tabstospaces": true
+}
