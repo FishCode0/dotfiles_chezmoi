@@ -110,5 +110,6 @@ chezmoi execute-template '{{ if .zsh.enable_eza_aliases }}eza on{{ else }}eza of
 chezmoi apply
 ```
 
-
+## 更多软件安装
+详见[app_install.md](app_install.md)
 
