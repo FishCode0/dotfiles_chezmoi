@@ -17,7 +17,7 @@ fish_add_path /usr/local/go/bin
 fish_add_path ~/.local/bin
 fish_add_path ~/.cargo/bin
 
-abbr -a  bat "batcat"
+# abbr -a  bat "batcat"
 # abbr -a ll "eza --all --long --icons"
 # abbr -a la "eza --all --long -1"
 # abbr -a l "eza --group-directories-first --icons"
