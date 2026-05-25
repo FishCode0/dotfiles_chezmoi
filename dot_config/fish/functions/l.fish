@@ -1,3 +1,3 @@
 function l
-eza --group-directories-first --icons $argv
+eza --group-directories-first --icons --group  $argv
 end
