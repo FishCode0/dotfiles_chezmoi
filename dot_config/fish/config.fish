@@ -23,6 +23,7 @@ fish_add_path ~/.cargo/bin
 # abbr -a l "eza --group-directories-first --icons"
 abbr -a grep "grep --color=auto"
 abbr -a apt "nala"
+abbr -a g "git"
 
 # abbr -a df "df -h
 
