@@ -1,5 +1,7 @@
 {
     "Alt-s":"Save,Quit",
     "Alt-/": "lua:comment.comment",
-    "CtrlUnderscore": "lua:comment.comment"
+    "CtrlUnderscore": "lua:comment.comment",
+    "Alt-n": "FindNext",
+    "Alt-p": "FindPrevious"
 }
