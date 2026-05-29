@@ -26,7 +26,7 @@ fetch之后记得注释掉（或删除）原来的源地址
 ```bash
 sudo vim /etc/apt/sources.list
 # Ubuntu26.04更改为以下地址
-sudo vim /etc/apt/sources.list.d/ubuntu.sources 
+sudo vim /etc/apt/sources.list.d/ubuntu.sources
 ```
 
 
@@ -74,7 +74,7 @@ cargo install --locked --bin jj jj-cli
 
 ```bash
 wget https://go.dev/dl/go1.26.3.linux-amd64.tar.gz
-sudo tar -C /usr/local -xzf go1.26.3.linux-amd64.tar.gz 
+sudo tar -C /usr/local -xzf go1.26.3.linux-amd64.tar.gz
 
 ```
 
@@ -118,7 +118,7 @@ cargo安装：
 cargo install --locked bat
 ```
 
-### eza 
+### eza
 https://github.com/eza-community/eza/blob/main/INSTALL.md
 cargo安装方法：
 ```bash
@@ -159,7 +159,7 @@ curl -sSfL https://raw.githubusercontent.com/ajeetdsouza/zoxide/main/install.sh 
 eval "$(zoxide init bash)"
 # fish
 zoxide init fish | source
-# zsh 
+# zsh
 eval "$(zoxide init zsh)"
 # 其他可以在官网Readme中查看
 
@@ -213,6 +213,12 @@ https://github.com/sharkdp/fd
 ```bash
 cargo install fd-find
 ```
+在Rocky Linux等环境中，命令为`fd`，在Debain系列为`fdfind`
+为了方便统一，创建软链接
+```bash
+ln -s ~/.cargo/bin/fd ~/.cargo/bin/fdfind
+```
+
 
 ### direnv
 
@@ -479,7 +485,7 @@ git clone https://github.com/Aloxaf/fzf-tab ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/p
 git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k
 ```
 
-### 
+###
 
 ### yazi
 
