@@ -24,6 +24,7 @@ fish_add_path ~/.cargo/bin
 abbr -a grep "grep --color=auto"
 abbr -a apt "nala"
 abbr -a g "git"
+abbr -a s "sudo"
 
 # abbr -a df "df -h
 
