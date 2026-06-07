@@ -1,21 +1,28 @@
 README.MD
 
+# Windows规则
 {{- if eq .chezmoi.os "windows" }}
 .bashrc
 .zshrc
 .p10k.zsh
 {{- end }}
 
+
+# Linux规则
 {{- if ne .chezmoi.os "windows" }}
 .wezterm.lua
 Documents/
 scoopfile.json
-{{- end }}
 
-{{- if eq .chezmoi.osRelease.versionID "26.04" }}
+# Ubuntu 26.04 专用规则
+{{- if eq (get .chezmoi.osRelease "versionID") "26.04" }}
 .zshrc
 .zsh_history
 .config/zsh/**
 .p10k.zsh
 .bashrc
 {{- end }}
+
+
+{{- end }}
+
