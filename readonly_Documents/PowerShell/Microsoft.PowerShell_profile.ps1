@@ -69,3 +69,17 @@ Invoke-Expression (& { (zoxide init --hook pwd  powershell | Out-String) })
 $env:COMPLETE = "powershell"
 jj | Out-String | Invoke-Expression
 Remove-Item Env:\COMPLETE
+
+
+
+function y {
+	$tmp = New-TemporaryFile
+	yazi $args --cwd-file="$tmp"
+    if (Test-Path $tmp) {
+		$cwd = Get-Content -Path $tmp -Raw
+	    if ($cwd -and (Test-Path $cwd)) {
+	        Set-Location $cwd
+	    }
+	}
+	 Remove-Item $tmp -Force -ErrorAction SilentlyContinue
+	}
