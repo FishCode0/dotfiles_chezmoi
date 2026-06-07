@@ -71,7 +71,7 @@ jj | Out-String | Invoke-Expression
 Remove-Item Env:\COMPLETE
 
 
-
+# yazi 快速跳转目录
 function y {
 	$tmp = New-TemporaryFile
 	yazi $args --cwd-file="$tmp"
