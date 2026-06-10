@@ -552,6 +552,24 @@ languages = ["zh","en"]
 
 完成后，即会输出中文描述。
 
+### GitGuardian
+GitGuardian 是一款非常强大的企业级自动扫描工具，专门用来监测你的公开或私有 GitHub 仓库里有没有不小心泄露的秘密（比如 SSH 私钥、API Token、数据库密码等）。
+它不仅能扫描历史遗留的泄露，更重要的是能作为“防死锁守护进程”，在你下一次不小心提交密码时，直接通过邮件或终端拦截你。
+它的本地命令行工具 ggshield，可以集成到 Git 的 pre-commit 钩子里，在你敲下 git commit 的瞬间自动本地扫描，如果发现有明文私钥，直接拒绝提交。
+
+```bash
+# 安装ggshield
+uv tool install ggshield
+
+# 登录并授权本地设备（也可以使用API登录）
+ggshield auth login
+
+# 在常规工作目录启用本地防线，它会在每次commit之前进行一次扫描，如果安全，顺利提交；否则当场拦截
+ggshield install --mode local
+
+# 手动扫描本地整个项目
+ggshield secret scan repo .
+```
 
 
 ## 清理
